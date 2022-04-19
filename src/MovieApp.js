@@ -10,7 +10,8 @@ const MovieApp = () => {
     // new state for searching movies input element
     const [searchTerm, setSearchTerm] = useState('');
 
-    const API_URL = ' http://www.omdbapi.com/?i=tt3896198&apikey=5bae1a84'
+    // const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=5bae1a84";
+    const API_URL = process.env.REACT_APP_MOVIE_DATA_BASE_URL;
 
     // Raw data: use to create a single card and display this movie..
     // const movie1 =
@@ -23,7 +24,17 @@ const MovieApp = () => {
     //     "Poster": "https://m.media-amazon.com/images/M/MV5BYjFhN2RjZTctMzA2Ni00NzE2LWJmYjMtNDAyYTllOTkyMmY3XkEyXkFqcGdeQXVyNTA0OTU0OTQ@._V1_SX300.jpg"
     // }
 
+
+    // load the movie data as component load -> useEffect
+    useEffect(() => {
+
+        // call a funct to fetch movies asyn..
+        searchMovies();
+
+    }, []); // [] -> as 2nd arg to only call at the start..
+
     const searchMovies = async (title) => {
+
         const response = await fetch(`${API_URL}&s=${title}`);
         const data = await response.json();
 
@@ -31,21 +42,13 @@ const MovieApp = () => {
         setMovies(data.Search);
     }
 
-    // load the movie data as component load -> useEffect
-    useEffect(() => {
-
-        // call a funct to fetch movies asyn..
-        searchMovies('spiderman');
-
-    }, []); // [] -> as 2nd arg to only call at the start..
-
     return (
         <div className="app">
             <h1> MovieLand</h1>
 
             <div className="search">
                 <input
-                    placeholder="search for movies"
+                    placeholder="Search for movies"
                     value={searchTerm} // make an api call as user searches
                     onChange={(e) => setSearchTerm(e.target.value)} // accept a callback to fetch/recall data..
                 />
