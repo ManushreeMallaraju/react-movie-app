@@ -16,10 +16,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `environment variables`
 
-Create a free account here to get an apiKey and this allows to fetch movies.
+-Create a free account here to get an apiKey and this allows to fetch movies.
 https://www.omdbapi.com/
 
-Add them in .env file
+-Add them in .env file
 
 
 
