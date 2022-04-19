@@ -10,7 +10,6 @@ const MovieApp = () => {
     // new state for searching movies input element
     const [searchTerm, setSearchTerm] = useState('');
 
-    // const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=5bae1a84";
     const API_URL = process.env.REACT_APP_MOVIE_DATA_BASE_URL;
 
     // Raw data: use to create a single card and display this movie..
