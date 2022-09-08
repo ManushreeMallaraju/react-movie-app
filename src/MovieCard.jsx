@@ -12,7 +12,7 @@ const MovieCard = ({ movie }) => {
           src={
             movie.Poster !== 'N/A'
               ? movie.Poster
-              : process.env.REACT_APP_MOVIE_DATA_ERROR_URL
+              : 'https://via.placeholder.com/400' 
           }
           alt={movie.Title}
         />

@@ -10,7 +10,8 @@ const MovieApp = () => {
     // new state for searching movies input element
     const [searchTerm, setSearchTerm] = useState('');
 
-    const API_URL = process.env.REACT_APP_MOVIE_DATA_BASE_URL;
+    const API_URL ='http://www.omdbapi.com/?i=tt3896198&apikey=5bae1a84';
+
 
     // Raw data: use to create a single card and display this movie..
     // const movie1 =
@@ -37,7 +38,7 @@ const MovieApp = () => {
         const response = await fetch(`${API_URL}&s=${title}`);
         const data = await response.json();
 
-        //console.log(data.Search);
+        console.log(data.Search);
         setMovies(data.Search);
     }
 
@@ -76,7 +77,6 @@ const MovieApp = () => {
                                 ))
                             }
                         </div>
-
                     ) :
                     (
                         <div className="empty">
